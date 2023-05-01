@@ -1,6 +1,8 @@
 
-NFS_IP="192.168.200.161"
-NFS_BASE_PATH="/mnt/nfs_share/dkube-104"
+#NFS_IP="192.168.200.161"
+#NFS_BASE_PATH="/mnt/nfs_share/dkube-104"
+NFS_IP=""
+NFS_BASE_PATH=""
 
 PVs=$(cat << EOF
 apiVersion: v1
