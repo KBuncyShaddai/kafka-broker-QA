@@ -50,18 +50,18 @@ cp-kafka:
   imagePullSecrets:
   #  - name: "regcred"
   heapOptions: "-Xms512M -Xmx512M"
-  listenersConfig:
-  externalListeners:
-    - type: "plaintext"
-      name: "external1"
-      externalStartingPort: 32000
-      containerPort: 9094
-      accessMethod: NodePort
+  configurationOverrides:
+    "listener.security.protocol.map": |-
+      PLAINTEXT:PLAINTEXT,EXTERNAL:PLAINTEXT
   persistence:
     enabled: true
     # storageClass: ""
     size: 50Gi
     disksPerBroker: 1
+  nodeport:
+    enabled: true
+    servicePort: 19092
+    firstListenerPort: 31090
   resources: {}
   ## If you do want to specify resources, uncomment the following lines, adjust them as necessary,
   ## and remove the curly braces after 'resources:'
