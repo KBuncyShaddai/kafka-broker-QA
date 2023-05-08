@@ -50,6 +50,13 @@ cp-kafka:
   imagePullSecrets:
   #  - name: "regcred"
   heapOptions: "-Xms512M -Xmx512M"
+  externalAccess:
+    enabled: true
+    service:
+      type: NodePort
+      nodePorts:
+      - 30012
+      - 30013
   persistence:
     enabled: true
     # storageClass: ""
